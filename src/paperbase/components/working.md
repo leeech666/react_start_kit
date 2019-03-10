@@ -7,7 +7,7 @@ Informatique Athensoft, Montreal, QC                                            
 - 	Used React-Router to turn application into Single Page Application;
 - 	Used React-Redux to polish the data and for single directional flow;
 - 	Provide assistance to the back-end developers ;
-- 	Worked with QA team on daily basis in fixing the reported bugs/defects and checking cross platform ##compatibility;
+- 	Worked with QA team on daily basis in fixing the reported bugs/defects and checking cross platform compatibility;
 - 	Daily updates to clients through teleconferences and formal status updates;
 
 ## SAS developer

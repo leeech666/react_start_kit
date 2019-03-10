@@ -132,6 +132,7 @@ theme = {
 };
 
 const drawerWidth = 256;
+const drawerWidthSmall = 180;
 
 const styles = {
   root: {
@@ -164,7 +165,9 @@ class Paperbase extends React.Component {
   handleDrawerToggle = () => {
     this.setState(state => ({ mobileOpen: !state.mobileOpen }));
   };
-   
+   handleDrawerClose = () => {
+    this.setState(state => ({ mobileOpen: false}));
+  };
   render() {
     const { classes } = this.props;
 
@@ -175,14 +178,15 @@ class Paperbase extends React.Component {
           <nav className={classes.drawer}>
             <Hidden smUp implementation="js">
               <Navigator
-                PaperProps={{ style: { width: drawerWidth } }}
+                PaperProps={{ style: { width: drawerWidthSmall } }}
                 variant="temporary"
                 open={this.state.mobileOpen}
                 onClose={this.handleDrawerToggle}
+				onDrawerToggle={this.handleDrawerClose}
               />
             </Hidden>
             <Hidden xsDown implementation="css">
-              <Navigator PaperProps={{ style: { width: drawerWidth } }} />
+              <Navigator PaperProps={{ style: { width: drawerWidth } }} onDrawerToggle={this.handleDrawerToggle}/>
             </Hidden>
           </nav>
           <div className={classes.appContent}>

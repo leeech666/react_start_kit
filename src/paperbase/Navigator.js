@@ -19,6 +19,8 @@ import TimerIcon from '@material-ui/icons/Timer';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
 import {HashRouter, Route, Switch, Redirect,Link} from "react-router-dom"
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const categories = [
   {
@@ -88,14 +90,14 @@ const styles = theme => ({
 });
 
 function Navigator(props) {
-  const { classes, ...other } = props;
+  const { classes,onDrawerToggle,...other } = props;
 
   return (
-    <Drawer variant="permanent" {...other}>
+    <Drawer variant="permanent" {...other} onClick={onDrawerToggle}>
 	  <div>
-	 
+	
 	  </div>
-      <List disablePadding>
+      <List disablePadding onClick={onDrawerToggle}>
         <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
           Paperbase
         </ListItem>
@@ -113,11 +115,10 @@ function Navigator(props) {
 		  
         </ListItem>
 		<ListItem >
-		 <Link to='/resume' className={classes.categoryHeaderPrimary}>
+		 <Link to='/resume' className={classes.categoryHeaderPrimary} >
 		 Resume
 		 </Link>
-		 </ListItem>
-		 
+		 </ListItem>		 
 		 <ListItem >
 		 <Link to='/hoc' className={classes.categoryHeaderPrimary}>
 		 HOC and Redux
