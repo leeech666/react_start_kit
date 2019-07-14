@@ -1,26 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { withStyles } from '@material-ui/core/styles';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
-import PeopleIcon from '@material-ui/icons/People';
-import DnsRoundedIcon from '@material-ui/icons/DnsRounded';
-import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual';
-import PublicIcon from '@material-ui/icons/Public';
-import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet';
-import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent';
-import TimerIcon from '@material-ui/icons/Timer';
-import SettingsIcon from '@material-ui/icons/Settings';
-import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup';
-import {HashRouter, Route, Switch, Redirect,Link} from "react-router-dom"
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+import { withStyles } from '@material-ui/core/styles'
+import Divider from '@material-ui/core/Divider'
+import Drawer from '@material-ui/core/Drawer'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
+import HomeIcon from '@material-ui/icons/Home'
+import PeopleIcon from '@material-ui/icons/People'
+import DnsRoundedIcon from '@material-ui/icons/DnsRounded'
+import PermMediaOutlinedIcon from '@material-ui/icons/PhotoSizeSelectActual'
+import PublicIcon from '@material-ui/icons/Public'
+import SettingsEthernetIcon from '@material-ui/icons/SettingsEthernet'
+import SettingsInputComponentIcon from '@material-ui/icons/SettingsInputComponent'
+import TimerIcon from '@material-ui/icons/Timer'
+import SettingsIcon from '@material-ui/icons/Settings'
+import PhonelinkSetupIcon from '@material-ui/icons/PhonelinkSetup'
+import { Link } from 'react-router-dom'
 
 const categories = [
   {
@@ -31,74 +29,77 @@ const categories = [
       { id: 'Storage', icon: <PermMediaOutlinedIcon /> },
       { id: 'Hosting', icon: <PublicIcon /> },
       { id: 'Functions', icon: <SettingsEthernetIcon /> },
-      { id: 'ML Kit', icon: <SettingsInputComponentIcon /> },
-    ],
+      { id: 'ML Kit', icon: <SettingsInputComponentIcon /> }
+    ]
   },
   {
     id: 'Quality',
     children: [
       { id: 'Analytics', icon: <SettingsIcon /> },
       { id: 'Performance', icon: <TimerIcon /> },
-      { id: 'Test Lab', icon: <PhonelinkSetupIcon /> },
-    ],
-  },
-];
+      { id: 'Test Lab', icon: <PhonelinkSetupIcon /> }
+    ]
+  }
+]
 
 const styles = theme => ({
   categoryHeader: {
     paddingTop: 16,
-    paddingBottom: 16,
+    paddingBottom: 16
   },
   categoryHeaderPrimary: {
-    color: theme.palette.common.white,
+    color: theme.palette.common.white
   },
   item: {
     paddingTop: 4,
     paddingBottom: 4,
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: 'rgba(255, 255, 255, 0.7)'
   },
   itemCategory: {
     backgroundColor: '#232f3e',
     boxShadow: '0 -1px 0 #404854 inset',
     paddingTop: 16,
-    paddingBottom: 16,
+    paddingBottom: 16
   },
   firebase: {
     fontSize: 24,
     fontFamily: theme.typography.fontFamily,
-    color: theme.palette.common.white,
+    color: theme.palette.common.white
   },
   itemActionable: {
     '&:hover': {
-      backgroundColor: 'rgba(255, 255, 255, 0.08)',
-    },
+      backgroundColor: 'rgba(255, 255, 255, 0.08)'
+    }
   },
   itemActiveItem: {
-    color: '#4fc3f7',
+    color: '#4fc3f7'
   },
   itemPrimary: {
     color: 'inherit',
     fontSize: theme.typography.fontSize,
     '&$textDense': {
-      fontSize: theme.typography.fontSize,
-    },
+      fontSize: theme.typography.fontSize
+    }
   },
   textDense: {},
   divider: {
-    marginTop: theme.spacing.unit * 2,
-  },
-});
+    marginTop: theme.spacing.unit * 2
+  }
+})
 
 function Navigator(props) {
-  const { classes,onDrawerToggle,...other } = props;
+  const { classes, onDrawerToggle, ...other } = props
 
   return (
-    <Drawer variant="permanent" {...other} onClick={onDrawerToggle}>
-	  <div>
-	
-	  </div>
-      <List disablePadding onClick={onDrawerToggle}>
-        <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
+    <Drawer variant="permanent" {...other}>
+      <List disablePadding>
+        <ListItem
+          className={classNames(
+            classes.firebase,
+            classes.item,
+            classes.itemCategory
+          )}
+        >
           Paperbase
         </ListItem>
         <ListItem className={classNames(classes.item, classes.itemCategory)}>
@@ -107,52 +108,54 @@ function Navigator(props) {
           </ListItemIcon>
           <ListItemText
             classes={{
-              primary: classes.itemPrimary,
+              primary: classes.itemPrimary
             }}
           >
             Project Overview
           </ListItemText>
-		  
         </ListItem>
-		<ListItem >
-		 <Link to='/resume' className={classes.categoryHeaderPrimary} >
-		 Resume
-		 </Link>
-		 </ListItem>		 
-		 <ListItem >
-		 <Link to='/hoc' className={classes.categoryHeaderPrimary}>
-		 HOC and Redux
-		 </Link>
-		 </ListItem>
-		 
-		 <ListItem >
-		 <Link to='/async' className={classes.categoryHeaderPrimary}>
-		 Api and Async with Axios
-		 </Link>
-		 </ListItem>
-		 
-		<ListItem >
-		 <Link to='/instapaper' className={classes.categoryHeaderPrimary}>
-		 Instapaper
-		 </Link>
-		 </ListItem>
-		 <ListItem >
-		 <Link to='/home' className={classes.categoryHeaderPrimary}>
-		 Onepirate
-		 </Link>
-		 </ListItem>
-		 <ListItem >
-		 <Link to='/signin' className={classes.categoryHeaderPrimary}>
-		 Sign In
-		 </Link>
-		 </ListItem>
-		 <Divider className={classes.divider} />
+
+        <div onClick={onDrawerToggle}>
+          <ListItem>
+            <Link to="/resume" className={classes.categoryHeaderPrimary}>
+              Resume
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to="/hoc" className={classes.categoryHeaderPrimary}>
+              HOC and Redux
+            </Link>
+          </ListItem>
+
+          <ListItem>
+            <Link to="/async" className={classes.categoryHeaderPrimary}>
+              Api and Async with Axios
+            </Link>
+          </ListItem>
+
+          <ListItem>
+            <Link to="/instapaper" className={classes.categoryHeaderPrimary}>
+              Instapaper
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to="/home" className={classes.categoryHeaderPrimary}>
+              Onepirate
+            </Link>
+          </ListItem>
+          <ListItem>
+            <Link to="/signin" className={classes.categoryHeaderPrimary}>
+              Sign In
+            </Link>
+          </ListItem>
+        </div>
+        <Divider className={classes.divider} />
         {categories.map(({ id, children }) => (
           <React.Fragment key={id}>
             <ListItem className={classes.categoryHeader}>
               <ListItemText
                 classes={{
-                  primary: classes.categoryHeaderPrimary,
+                  primary: classes.categoryHeaderPrimary
                 }}
               >
                 {id}
@@ -166,14 +169,14 @@ function Navigator(props) {
                 className={classNames(
                   classes.item,
                   classes.itemActionable,
-                  active && classes.itemActiveItem,
+                  active && classes.itemActiveItem
                 )}
               >
                 <ListItemIcon>{icon}</ListItemIcon>
                 <ListItemText
                   classes={{
                     primary: classes.itemPrimary,
-                    textDense: classes.textDense,
+                    textDense: classes.textDense
                   }}
                 >
                   {childId}
@@ -185,11 +188,11 @@ function Navigator(props) {
         ))}
       </List>
     </Drawer>
-  );
+  )
 }
 
 Navigator.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styles)(Navigator);
+export default withStyles(styles)(Navigator)

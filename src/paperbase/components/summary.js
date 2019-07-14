@@ -1,95 +1,101 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
 
-const styles = theme => ({
-  root: {
-    display: 'flex',
-    backgroundColor: 'rgba(80,80,80,1)',
-    overflow: 'hidden',	
-  },
-  layoutBody: {
-    marginTop: theme.spacing.unit * 0,
-    marginBottom: theme.spacing.unit * 8,
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  item: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    paddingTop: `10px`,
-	padding: `100px`,
-	color: 'rgba(255, 255, 255, 0.7)',
-  },   
-  image: {
-    height: 55,
-    marginTop: theme.spacing.unit * 4,
-    marginBottom: theme.spacing.unit * 4,
-  },
-  curvyLines: {
-    pointerEvents: 'none',
-    position: 'absolute',
-    top: -180,
-    opacity: 0.7,
-  }, 
-});
+const styles = theme => ({})
 
 function ProductHowItWorks(props) {
-  const { classes } = props;
+  const { classes } = props
 
   return (
-    <section className={classes.root}>
-      <div className={classes.layoutBody} width="large">
-        <img
-          src="/static/themes/onepirate/productCurvyLines.png"
-          className={classes.curvyLines}
-          alt="curvy lines"
-        />        
-        <div>
-          <Grid container spacing={8}>
-           
-            <Grid item >
-              <div className={classes.item}>                
-                <img
-                  src="/static/themes/onepirate/productHowItWorks3.svg"
-                  alt="graph"
-                  className={classes.image}
-                />
-                <Typography variant="h6" align="left" color='inherit'>
-•	Hands on experience in creating components using React.js;<br/>
+    <div id="about">
+      <div className="container">
+        <div className="bodyResume">
+          <h4>01</h4>
+          <h1>
+            Know <br /> About me
+          </h1>
+          <br />
+          <div className="h50" />
+          <p>
+            • Hands on experience(<b>TDD, Code-Splitting</b>) in creating React
+            components;
+          </p>
+          <p>
+            • Understanding the web development process (design, develop,
+            deploy);.
+          </p>
+          <p>
+            • Ability to work effectively while working as a team member as well
+            as individually;
+          </p>
+          <p>
+            • Extensive knowledge in developing single - page applications (
+            <b>SPAs</b>);
+          </p>
+          <p>
+            • Experience in <b>RESTful</b> web services to integrate between{' '}
+            <b>Server Side to Client Side</b>;
+          </p>
+          <p>
+            • Worked on an <b>Agile (Scrum)</b> Development Team to deliver
+            regular updates to business team and project managers;
+          </p>
+          <p>
+            • Coding tool <b>VSCode+ESLint+Prettier </b>for developing;
+          </p>
+          <p>
+            • Programming Languages:{' '}
+            <b>
+              React16.8, React-Redux7.0 , Redux4.0, React-routerV5,
+              <br />
+              &nbsp;&nbsp;Redux-thunk+Axios, Node.js/Express.js
+            </b>
+            ;
+          </p>
+          <p>
+            • Components library: <b>@Material-ui4.1</b>;
+          </p>
+          <p>
+            • Unit testing: <b>Jest+Enzyme</b>;
+          </p>
+          <p>
+            • For Security: using <b>JWT token</b>;
+          </p>
+          <p>
+            • Databases: <b>MySQL, MongoDB</b>;
+          </p>
+          <p>
+            • Deployment: <b>CentOS 7.3+Nginx1.15</b>;
+          </p>
+          <p>
+            • Other: <b>Photoshop, AutoCAD, Echarts , Python/Anaconda</b>;
+          </p>
+          <p>
+            • Basic knowledge of machine learning(Genetic Algorithm,
+            Randomforest, LSTM);
+          </p>
 
-•	Understanding the web development process (design, develop, deploy);<br/>
-•	Ability to work effectively while working as a team member as well as individually;<br/>
-•	Extensive knowledge in developing single - page applications (SPAs);<br/>
-•	Experience in RESTful web services to integrate between Server side to Client Side;<br/>
-•	Worked on an Agile (Scrum) Development Team to deliver regular updates to business team and project managers;<br/>
-•	Well versed with UI tools like VSCode, Atom, notepad++ for developing;<br/>
-•	Relentless, self-motivated learning;<br/>
-•	Programming Languages: @Material-ui/core3.9, React16.7, React-Redux6.0 , Redux4.0, React-routerV4, Redux-thunk+Axios,  Node.js/Express.js;<br/>
-•	Databases:   MySQL, MongoDB;<br/>
-•	OS: Windows, CentOS 7.3;<br/>
-•	Other: Photoshop, AutoCAD, PHP/Laravel5.6 , Python/anaconda;<br/>
-•	Basic knowledge of machine learning(Genetic Algorithm, RF, LSTM);<br/>
-
-                </Typography>
-              </div>
-            </Grid>
-           
-          </Grid>
+          <div className="h50" />
         </div>
-        
+        <div className="aboutImgDiv">
+          <div className="aboutBorder" />
+          <img
+            src="/static/images/about-img.jpg"
+            width="400"
+            alt=""
+            align="right"
+            data-aos="fade-right"
+            data-aos-delay="0"
+          />
+        </div>
       </div>
-    </section>
-  );
+    </div>
+  )
 }
 
 ProductHowItWorks.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+  classes: PropTypes.object.isRequired
+}
 
-export default withStyles(styles)(ProductHowItWorks);
+export default withStyles(styles)(ProductHowItWorks)
